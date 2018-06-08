@@ -1,7 +1,7 @@
 # react-minesweeper
 React Minesweeper Implementation
 
-## Game overview
+## Game Overview
 
 The player is initially presented with a grid of undifferentiated squares. Some randomly selected squares, unknown to the player, are designated to contain mines. Typically, the size of the grid and the number of mines are set in advance by the user, either by entering the numbers or selecting from defined skill levels, depending on the implementations. (In the Microsoft variant, this is limited to 30 times 24 with 667 mines.)
 
@@ -58,9 +58,17 @@ An easier way to to integrate with github using the Heroku dashboard:
 
 i.e: https://dashboard.heroku.com/apps/bitclaw-react-minesweeper/deploy/github
 
-## Running unit tests
+## Running Unit Tests
 
 Run `yarn test` or `npm test`
+
+## Test Application Locally
+
+Run `npm run start` or `yarn run start`
+
+## Create Production Build
+
+Run `npm run build` or `yarn run build`
 
 ## Important notes / Troubleshooting
 
