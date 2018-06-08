@@ -33,7 +33,34 @@ Design and implement an API for the game (think of a mobile app for your API)
 
 Nice user experience (eg avoid page reload while playing)
 
+## URL where the game can be accessed and played
 
-## Important notes
+https://bitclaw-react-minesweeper.herokuapp.com/
+
+## Deploy Steps
+
+Heroku CLI
+
+```shell
+# Install Heroku CLI on Ubuntu/Debian Distros
+curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+
+$ heroku login
+$ heroku git:clone -a bitclaw-react-minesweeper
+$ cd bitclaw-react-minesweeper
+
+$ git add .
+$ git commit -am "first commit"
+$ git push heroku master
+```
+
+An easier way to to integrate with github using the Heroku dashboard:
+
+i.e: https://dashboard.heroku.com/apps/bitclaw-react-minesweeper/deploy/github
+
+## Important notes / Troubleshooting
+
+
+
 
 
