@@ -2,6 +2,13 @@
   "name": "react-minesweeper",
   "version": "0.1.0",
   "private": true,
+  "engineStrict": true,
+  "engines": {
+    "node": "8.x"
+  },
+  "devEngines": {
+    "node": "8.x"
+  },
   "dependencies": {
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
