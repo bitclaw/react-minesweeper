@@ -58,6 +58,10 @@ An easier way to to integrate with github using the Heroku dashboard:
 
 i.e: https://dashboard.heroku.com/apps/bitclaw-react-minesweeper/deploy/github
 
+## Running unit tests
+
+Run `yarn test` or `npm test`
+
 ## Important notes / Troubleshooting
 
 
