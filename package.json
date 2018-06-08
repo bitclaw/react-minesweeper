@@ -14,10 +14,21 @@
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4"
   },
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "verbose": true,
+    "setupFiles": [
+      "./src/shim.js",
+      "./src/setup.js"
+    ]
   }
 }
