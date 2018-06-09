@@ -54,7 +54,7 @@ $ git commit -am "first commit"
 $ git push heroku master
 ```
 
-An easier way to to integrate with github using the Heroku dashboard:
+An easier way to integrate with github using the Heroku dashboard:
 
 i.e: https://dashboard.heroku.com/apps/bitclaw-react-minesweeper/deploy/github
 
