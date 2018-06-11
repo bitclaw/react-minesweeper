@@ -19,3 +19,4 @@ const Digit = ({ digit }) => {
 export default connect(
     (state) => ({digit: state.digit})
 )(Digit)
+

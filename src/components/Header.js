@@ -1,44 +1,45 @@
-import React, {Component} from 'react';
+import React,{Component} from 'react';
 import {connect} from 'react-redux'
-import Counter from './Counter'
-//import Digit from 'Digit'
-import Resetter from './Resetter'
-import {resetClick,tileClick} from "../reducers/tiles";
-import {timerIncrement} from "../reducers/game";
-import {MINES as minesCount} from "../lib/minesweeper";
+import Counter from './presentational/Counter'
+import Resetter from './presentational/Resetter'
+import {resetClick} from "../actions/minesweeper";
 
-const Header = ({resetClick,time, minesCount}) => (
-    <div className="header">
-        <Counter value={minesCount} />
-        <Resetter onClick={resetClick} gameOver={false} gameWon={false} />
-        <Counter value={time} />
-    </div>
-)
+class Header extends Component {
+    componentDidMount() {
+    }
 
-// class Header extends Component {
-//     handleInputChange = (event) => {
-//         const value = event.target.value
-//         this.props.updateCurrent(value)
-//     }
-//
-//     handleSubmit = (event) => {
-//         event.preventDefault();
-//         this.props.saveTodo(this.props.currentTodo)
-//     }
-//
-//     render() {
-//         const {currentTodo} = this.props
-//         return (
-//             <form onSubmit = {this.handleSubmit}>
-//                 <input type="text"
-//                        onChange={this.handleInputChange}
-//                        value={currentTodo}/>
-//             </form>
-//         )
-//     }
-// }
+    render() {
+        return (
+            <div className="header">
+                <Counter value={this.props.minesCount} />
+                <Resetter onClick={this.props.resetClick} gameOver={this.props.gameOver} gameWon={this.props.gameWon} />
+                <Counter value={time} />
+            </div>
+        )
+    }
+}
 
 export default connect(
-    (state) => ({ time: 0,tiles: { minesCount } }),
-    {resetClick,timerIncrement}
+    (state, ownProps) => ({time: ownProps.time}),
+    {resetClick}
 )(Header)
+
+// let Header = ({ time, minesCount, onResetClick, gameOver, gameWon }) => (
+//     <div className="header">
+//         <Counter value={minesCount} />
+//         <Resetter onClick={onResetClick} gameOver={gameOver} gameWon={gameWon} />
+//         <Counter value={time} />
+//     </div>
+// );
+
+// const mapStateToHeaderProps = ({ time, tiles: { minesCount }, gameOver, gameWon }) => ({
+//     time, minesCount, gameOver, gameWon
+// });
+
+// export default connect(mapStateToHeaderProps, {
+//     onResetClick: resetClick
+// })(Header);
+
+// export default Header = connect(mapStateToHeaderProps, {
+//     onResetClick: resetClick
+// })(Header);

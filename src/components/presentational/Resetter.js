@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {resetClick as onClick} from '../../actions/minesweeper'
 
 const Resetter = ({ onClick, gameWon, gameOver }) => (
     <div className="resetter" onClick={onClick}>
@@ -12,9 +13,6 @@ const Resetter = ({ onClick, gameWon, gameOver }) => (
 );
 
 export default connect(
-    (state) => ({
-        onClick: state.onClick,
-        gameWon: state.gameWon,
-        gameOver: state.gameOver,
-    })
+    (state) => ({gameWon: state.gameWon,gameOver:state.gameWon}),
+    {onClick}
 )(Resetter)

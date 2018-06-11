@@ -1,8 +1,8 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import { times } from 'lodash/times';
-import {COLS,TILE_WIDTH} from '../lib/minesweeper'
-import {tileClick} from '../reducers/tiles';
+import {COLS, TILE_WIDTH} from "../constants/minesweeper";
+import {connect} from "react-redux";
+import {tileClick} from "../actions/minesweeper";
+import * as _ from "lodash";
 
 const Tile = ({ uncovered, hasMine, neighborsMineCount, gameOver, cheat, onClick }) => (
     <button className={`tile ${uncovered && 'uncovered'} ${hasMine && 'has-mine'}`}
@@ -14,9 +14,9 @@ const Tile = ({ uncovered, hasMine, neighborsMineCount, gameOver, cheat, onClick
     </button>
 );
 
-const Tiles = ({ tiles, onTileClick, gameOver, cheat }) => (
+let Tiles = ({ tiles, onTileClick, gameOver, cheat }) => (
     <div className="tiles" style={{ width: (COLS * TILE_WIDTH) }}>
-        {times(tiles.count, (i) => (
+        {_.times(tiles.count, (i) => (
             <Tile key={i}
                   {...tiles[i]}
                   gameOver={gameOver}
@@ -25,12 +25,15 @@ const Tiles = ({ tiles, onTileClick, gameOver, cheat }) => (
             />
         ))}
     </div>
-)
+);
 
-export default connect(
-    (state) => ({
-        gameOver: state.gameOver,
-        tiles: state.tiles,
-        cheat: state.cheat,onTileClick: tileClick
-    })
-)(Tiles)
+const mapStateToTilesProps = ({ tiles, gameOver, cheat }) => ({
+    gameOver,
+    tiles,
+    cheat
+});
+
+const mapDispatchToTilesProps =  { onTileClick: tileClick };
+Tiles = connect(mapStateToTilesProps, mapDispatchToTilesProps)(Tiles);
+
+export default Tiles
