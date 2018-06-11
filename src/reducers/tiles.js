@@ -1,6 +1,6 @@
 import {uncoverTile,getTilesInitialState} from '../lib/minesweeper'
 
-import {TIMER_INCREMENT} from "./gameReducer";
+import {TIMER_INCREMENT} from "./game";
 
 /** INITIAL STATE **/
 const initState = {
@@ -14,7 +14,7 @@ export const RESIZE = 'RESIZE'
 
 /** ASYNC ACTION CREATORS **/
 export const tileClick = (id, hasMine) => ({type: TILE_CLICK, payload: { id, hasMine }})
-export const resetClick = (id, hasMine) => ({type: RESET_CLICK, payload: {}})
+export const resetClick = () => ({type: RESET_CLICK, payload: {}})
 export const resize = (id, hasMine) => ({type: TIMER_INCREMENT, payload: { id, hasMine }})
 
 /** REDUCER FUNCTION **/

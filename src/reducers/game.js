@@ -1,4 +1,5 @@
-import {TILE_CLICK,RESET_CLICK,RESIZE} from './tilesReducer'
+import {TILE_CLICK,RESET_CLICK,RESIZE} from './tiles'
+import {isGameWon,getTilesInitialState} from '../lib/minesweeper'
 
 
 /** INITIAL STATE **/
@@ -7,6 +8,7 @@ const GAME_STATE = {
     gameOver: false,
     gameWon: false,
     time: 0,
+    tiles: getTilesInitialState(),
     cheat: false
 }
 
@@ -17,17 +19,8 @@ export const TIMER_INCREMENT = 'TIMER_INCREMENT'
 /** ASYNC ACTION CREATORS **/
 export const timerIncrement = (id, hasMine) => ({type: TIMER_INCREMENT, payload: { id, hasMine }})
 
-/** HELPER FUNCTIONS **/
-const isGameWon = (tiles) => {
-    const { count, minesCount } = tiles;
-
-    return _.reduce(tiles, (acc, tile) => {
-        return (tile.uncovered ? acc + 1 : acc);
-    }, 0) === (count - minesCount);
-};
-
 /** REDUCER FUNCTION **/
-export default (state = initState,action) => {
+export default (state = GAME_STATE,action) => {
     switch(action.type) {
         case TIMER_INCREMENT:
             if (!state.gameStarted)
@@ -44,12 +37,12 @@ export default (state = initState,action) => {
             }
 
             //const tiles = tilesReducer(state.tiles, action);
-            const gameWon = isGameWon(tiles);
+            const gameWon = isGameWon(state.tiles);
             const gameEnded = action.payload.hasMine || gameWon;
 
             return {
                 ...state,
-                tiles,
+                tiles: state.tiles,
                 gameStarted: !gameEnded,
                 gameOver: !gameWon && gameEnded,
                 gameWon
@@ -60,7 +53,7 @@ export default (state = initState,action) => {
             //const tiles = tilesReducer(state.tiles, action);
             return {
                 ...GAME_STATE,
-                tiles
+                tiles: state.tiles
             };
 
         }
@@ -69,7 +62,7 @@ export default (state = initState,action) => {
             //const tiles = tilesReducer(state.tiles, action);
             return {
                 ...GAME_STATE,
-                tiles
+                tiles: state.tiles
             }
         }
         default:
