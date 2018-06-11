@@ -1,7 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import { times } from 'lodash/times';
 import {COLS,TILE_WIDTH} from '../lib/minesweeper'
-import {fetchTodos,toggleTodo, deleteTodo, getVisibleTodos} from '../reducers/tilesReducer';
+import {tileClick} from '../reducers/tiles';
 
 const Tile = ({ uncovered, hasMine, neighborsMineCount, gameOver, cheat, onClick }) => (
     <button className={`tile ${uncovered && 'uncovered'} ${hasMine && 'has-mine'}`}
@@ -15,7 +16,7 @@ const Tile = ({ uncovered, hasMine, neighborsMineCount, gameOver, cheat, onClick
 
 const Tiles = ({ tiles, onTileClick, gameOver, cheat }) => (
     <div className="tiles" style={{ width: (COLS * TILE_WIDTH) }}>
-        {_.times(tiles.count, (i) => (
+        {times(tiles.count, (i) => (
             <Tile key={i}
                   {...tiles[i]}
                   gameOver={gameOver}
