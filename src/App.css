@@ -1,155 +1,158 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 60px;
+    animation: App-logo-spin infinite 20s linear;
+    height: 60px;
 }
 
 .App-header {
-  background-color: #808080;
-  height:100px;
-  padding: 20px;
-  color: white;
+    background-color: #808080;
+    height:100px;
+    padding: 20px;
+    color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 /* Minesweeper styles */
 
 .btn, body .Minesweeper-app .tiles .tile, body .Minesweeper-app .resetter button {
-  border-radius: 0;
-  -webkit-appearance: none;
-  cursor: pointer;
-  background: #bfbfbf;
-  outline: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    cursor: pointer;
+    background: #bfbfbf;
+    outline: none;
 }
 .btn:active, body .Minesweeper-app .tiles .tile:active, body .Minesweeper-app .resetter button:active, .btn:focus, body .Minesweeper-app .tiles .tile:focus, body .Minesweeper-app .resetter button:focus {
-  outline: none;
+    outline: none;
 }
 
 body {
-  background: #bfbfbf;
-  text-align: center;
+    background: #bfbfbf;
+    text-align: center;
 }
 body .msg {
-  padding: 10px;
-  color: #e0e0e0;
+    padding: 10px;
+    color: #e0e0e0;
 }
 body .Minesweeper-app {
-  display: inline-block;
-  margin: 20px 20px 0;
-  background: #bfbfbf;
-  border: 10px solid #bfbfbf;
-  outline: 3px outset white;
+    display: inline-block;
+    margin: 20px 20px 0;
+    background: #bfbfbf;
+    border: 10px solid #bfbfbf;
+    outline: 3px outset white;
 }
 body .Minesweeper-app .counter {
-  display: flex;
-  font-family: "dgtl",serif;
-  font-size: 35px;
-  line-height: 27px;
-  background: black;
+    display: flex;
+    font-family: "dgtl",serif;
+    font-size: 35px;
+    line-height: 27px;
+    background: black;
 }
 body .Minesweeper-app .counter .digit {
-  position: relative;
-  display: block;
-  padding: 0 1px;
-  color: red;
-  z-index: 1;
+    position: relative;
+    display: block;
+    padding: 0 1px;
+    color: green;
+    z-index: 1;
 }
 body .Minesweeper-app .counter .digit .sdigit {
-  position: absolute;
-  opacity: 0.4;
-  z-index: 0;
+    position: absolute;
+    opacity: 0.4;
+    z-index: 0;
 }
 body .Minesweeper-app .counter .digit span {
-  position: relative;
-  display: inline-block;
-  min-width: 19px;
+    position: relative;
+    display: inline-block;
+    min-width: 19px;
 }
 body .Minesweeper-app .header {
-  display: flex;
-  padding: 5px 8px;
-  border: 3px inset;
-  align-items: center;
+    display: flex;
+    padding: 5px 8px;
+    border: 3px inset;
+    align-items: center;
 }
+
 body .Minesweeper-app .resetter {
-  margin: 0 auto;
+    margin: 0 auto;
+    padding: 10px;
 }
+
 body .Minesweeper-app .resetter button {
-  box-shadow: 1px 1px 1px 0px;
-  border: 1px outset;
-  font-size: 20px;
-  padding: 6px 2px 1px;
-  line-height: 17px;
+    box-shadow: 1px 1px 1px 0px;
+    border: 1px outset;
+    font-size: 20px;
+    padding: 6px 2px 1px;
+    line-height: 17px;
 }
 body .Minesweeper-app .separator {
-  border: 5px solid #bfbfbf;
+    border: 5px solid #bfbfbf;
 }
 body .Minesweeper-app .tiles {
-  display: flex;
-  overflow: hidden;
-  flex-wrap: wrap;
-  border: 4px inset;
-  padding: 0;
-  background: #242424;
-  line-height: 18px;
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+    border: 4px inset;
+    padding: 0;
+    background: #242424;
+    line-height: 18px;
 }
 body .Minesweeper-app .tiles .tile {
-  display: block;
-  width: 20px;
-  height: 20px;
-  margin: 0;
-  box-shadow: -1px -1px 1px 0px;
-  padding: 1px 1px 1px 2px;
-  flex-grow: 0;
-  flex-shrink: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    box-shadow: -1px -1px 1px 0px;
+    padding: 1px 1px 1px 2px;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 body .Minesweeper-app .tiles .tile span.t-0 {
-  color: #e0e0e0;
+    color: #e0e0e0;
 }
 body .Minesweeper-app .tiles .tile span.t-1 {
-  color: #0000ff;
+    color: #0000ff;
 }
 body .Minesweeper-app .tiles .tile span.t-2 {
-  color: #007b00;
+    color: #007b00;
 }
 body .Minesweeper-app .tiles .tile span.t-3 {
-  color: #ff0000;
+    color: #ff0000;
 }
 body .Minesweeper-app .tiles .tile span.t-4 {
-  color: #00007b;
+    color: #00007b;
 }
 body .Minesweeper-app .tiles .tile span.t-5 {
-  color: #7b0000;
+    color: #7b0000;
 }
 body .Minesweeper-app .tiles .tile span.t-6 {
-  color: #007b7b;
+    color: #007b7b;
 }
 body .Minesweeper-app .tiles .tile span.t-7 {
-  color: #000000;
+    color: #000000;
 }
 body .Minesweeper-app .tiles .tile span.t-8 {
-  color: #7b7b7b;
+    color: #7b7b7b;
 }
 body .Minesweeper-app .tiles .tile.uncovered {
-  box-shadow: none;
-  background: #e0e0e0;
-  border: 1px inset #e0e0e0;
-  outline-color: transparent;
+    box-shadow: none;
+    background: #e0e0e0;
+    border: 1px inset #e0e0e0;
+    outline-color: transparent;
 }
 body .Minesweeper-app .tiles .tile.uncovered.has-mine {
-  background: red;
+    background: red;
 }
