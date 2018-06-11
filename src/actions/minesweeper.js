@@ -14,7 +14,7 @@ export const resetClick = () => ({
 });
 
 export const timerIncrement = () => ({
-    type: 'TIMER_INC',
+    type: 'TIMER_INCREMENT',
     payload: {}
 });
 
