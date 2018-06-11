@@ -1,7 +1,7 @@
 // Action creators
-import {MINES, TILES} from "../constants/minesweeper";
+import {MINES, RADIX, TILES,COLS} from "../constants/minesweeper";
 import * as _ from "lodash";
-import {getNeighbors} from "../lib/minesweeper";
+//import {getNeighbors} from "../lib/minesweeper";
 
 export const tileClick = (id, hasMine) => ({
     type: 'TILE_CLICK',
@@ -22,6 +22,7 @@ export const createTiles = (count) => {
     // Default tile state
     const state = {
         hasMine: false,
+        hasFlag: false,
         uncovered: false,
         neighborsMineCount: 0
     };
@@ -64,7 +65,10 @@ export const getTilesInitialState = (tilesCount = TILES, minesCount = MINES) => 
 };
 
 export const uncoverTile = (tiles, idx) => {
-    if(!tiles[idx]) return;
+    if(!tiles[idx]){
+        return;
+    }
+
     const neighbors = getNeighbors(tiles, idx);
 
     tiles[idx].uncovered = true;
@@ -86,6 +90,28 @@ export const isGameWon = (tiles) => {
     }, 0) === (count - minesCount);
 };
 
+export const getNeighbors = (tiles, idx) => {
+    const { row, col } = to2D(idx);
+    const adjacents = [
+        { r: row + 1, c: col     }, { r: row - 1, c: col },
+        { r: row,     c: col + 1 }, { r: row,     c: col - 1 },
+        { r: row + 1, c: col + 1 }, { r: row - 1, c: col + 1 },
+        { r: row + 1, c: col - 1 }, { r: row - 1, c: col - 1 }
+    ];
+
+    return _.reduce(adjacents, (acc, adj) => {
+        acc[to1D(adj.r, adj.c)] = tiles[to1D(adj.r, adj.c)];
+
+        return acc;
+    }, {});
+}
+
+export const to1D = (row, col) => ((row * COLS) + col);
+export const to2D = (idx) => ({
+    row: parseInt(idx / COLS,RADIX),
+    col: parseInt(idx % COLS,RADIX)
+});
+
 export default {
     tileClick,
     resetClick,
@@ -95,5 +121,5 @@ export default {
     setNeighborMinesCount,
     getTilesInitialState,
     uncoverTile,
-    isGameWon,
+    isGameWon
 }

@@ -4,11 +4,12 @@ import {connect} from "react-redux";
 import {tileClick} from "../actions/minesweeper";
 import * as _ from "lodash";
 
-const Tile = ({ uncovered, hasMine, neighborsMineCount, gameOver, cheat, onClick }) => (
+const Tile = ({ uncovered, hasMine, neighborsMineCount, gameOver, cheat, onClick, isFlagged }) => (
     <button className={`tile ${uncovered && 'uncovered'} ${hasMine && 'has-mine'}`}
             onClick={onClick}>
     <span className={`t-${!hasMine && neighborsMineCount}`}>
       {(((gameOver && hasMine) || (cheat && hasMine)) && '💣')}
+      {(((gameOver && hasMine) || (cheat && isFlagged)) && '🚩')}
         {(uncovered && !hasMine ? neighborsMineCount : undefined)}
     </span>
     </button>
