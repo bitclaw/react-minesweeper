@@ -73,6 +73,7 @@ Run `npm run build` or `yarn run build`
 ## Important notes / Troubleshooting
 
 https://medium.com/@zalmoxis/improve-your-development-workflow-with-redux-devtools-extension-f0379227ff83
-
+https://stackoverflow.com/questions/47129987/redux-persist-how-to-save-state-on-browsers-local-storage
+https://stackoverflow.com/questions/48090123/redux-persist-v5-implementation-with-middleware
 
 
