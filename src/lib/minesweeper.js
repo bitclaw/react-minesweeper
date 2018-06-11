@@ -1,9 +1,9 @@
 import * as _ from 'lodash';
 
+const RADIX = 10
 export const TILES = 144;
-export const MINES = parseInt(TILES / 10);
+export const MINES = parseInt(TILES / 10,RADIX);
 export const COLS  = Math.sqrt(TILES);
-export const TILE_WIDTH = 20;
 
 export const getNeighbors = (tiles, idx) => {
     const { row, col } = to2D(idx);
@@ -36,8 +36,8 @@ export const getTilesInitialState = (tilesCount = TILES, minesCount = MINES) => 
 
 export const to1D = (row, col) => ((row * COLS) + col);
 export const to2D = (idx) => ({
-    row: parseInt(idx / COLS),
-    col: parseInt(idx % COLS)
+    row: parseInt(idx / COLS,RADIX),
+    col: parseInt(idx % COLS,RADIX)
 });
 
 export const createTiles = (count) => {

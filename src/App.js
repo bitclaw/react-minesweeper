@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import minesweeperIcon from './minesweeper.svg';
 import './App.css';
-import Header from './components/Header'
-import Tiles from './components/Tiles.js'
+import Minesweeper from './components/Minesweeper'
 
 class App extends Component {
     render() {
@@ -13,8 +12,7 @@ class App extends Component {
                     <h1 className="App-title">Minesweeper</h1>
                 </header>
                 <div className="Minesweeper-app">
-                    <Header />
-                    <div className="separator" />
+                    <Minesweeper />
                 </div>
             </div>
         );
