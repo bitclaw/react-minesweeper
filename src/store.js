@@ -3,9 +3,18 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 import reducer from './reducers/minesweeper'
 
-export default createStore(
+let store = createStore(
     reducer,
     composeWithDevTools(
         applyMiddleware(thunk)
     )
-)
+);
+
+if (process.env.DISABLE_DEV_TOOLS) {
+    store = createStore(
+        reducer,
+        applyMiddleware(thunk)
+    )
+}
+
+export default store
