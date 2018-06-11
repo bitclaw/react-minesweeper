@@ -2,16 +2,16 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import Counter from './Counter'
 //import Digit from 'Digit'
-//import Resetter from 'Resetter'
+import Resetter from './Resetter'
 import {resetClick,tileClick} from "../reducers/tiles";
-import {fetchTodos} from "../reducers/game";
+import {timerIncrement} from "../reducers/game";
 import {MINES as minesCount} from "../lib/minesweeper";
 
-const Header = ({resetClick}) => (
+const Header = ({resetClick,time, minesCount}) => (
     <div className="header">
         <Counter value={minesCount} />
-
-        <Counter value={1} />
+        <Resetter onClick={resetClick} gameOver={false} gameWon={false} />
+        <Counter value={time} />
     </div>
 )
 
@@ -39,6 +39,6 @@ const Header = ({resetClick}) => (
 // }
 
 export default connect(
-    (state) => ({ time: '',tiles: { minesCount } }),
-    {resetClick}
+    (state) => ({ time: 0,tiles: { minesCount } }),
+    {resetClick,timerIncrement}
 )(Header)
