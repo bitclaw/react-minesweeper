@@ -72,7 +72,7 @@ Run `npm run build` or `yarn run build`
 
 ## Important notes / Troubleshooting
 
-
+https://medium.com/@zalmoxis/improve-your-development-workflow-with-redux-devtools-extension-f0379227ff83
 
 
 
