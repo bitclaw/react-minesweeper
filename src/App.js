@@ -13,6 +13,7 @@ class App extends Component {
                     <h1 className="App-title">Minesweeper</h1>
                 </header>
                 <div className="Minesweeper-app">
+                    <Header />
                     <div className="separator" />
                 </div>
             </div>

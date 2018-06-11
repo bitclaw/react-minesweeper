@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import Digit from './Digit'
 
 const Counter = ({ value }) => (
     <div className="counter">
